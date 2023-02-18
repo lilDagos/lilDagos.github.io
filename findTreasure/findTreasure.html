@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TROVA IL TESORO!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script language="JavaScript">
+    //<!--
+    function reset() {
+        for (let i = 0; i < 25; i++) {
+            document.getElementById(i).src='vuoto.jpg'
+        }
+        for (let i = 0; i < 25; i++) {
+            s=i+"s";
+            document.getElementById(s).src='x.jpg'
+        }
+        i=0;
+        document.getElementById("numero").innerHTML= 0;
+        numeroRandomico();
+        b2=true;
+    }
+    
+    let i=0;
+    var b= true;
+    var b2= true;
+    let num;
+
+    function numeroRandomico() {
+        num=Math.floor(Math.random() * 25);
+        s=num+"s"
+            document.getElementById(s).src='treasure.png';
+    }
+
+    function cliccato(id){
+        if(b2){
+        if(b){
+            numeroRandomico();
+            b=false;
+        }
+        document.getElementById(id).src='nulla.png';
+        i++
+        s=i.toString();
+        document.getElementById("numero").innerHTML= s;
+
+        if(id==num){
+            b2=false;
+            var myTimer = setTimeout(function() {reset()}, 3000);
+            var myTimer = setTimeout(function() {alert("HAI VINTO!")}, 300);
+        }
+    }
+        }
+
+    //-->
+    </script>
+<style>
+    
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-image {
+  background-image: url("vsc.jpg");
+  filter: blur(8px);
+  -webkit-filter: blur(3px);
+  min-height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 3px solid #f1f1f1;
+}
+
+.bg-text {
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.4);
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+  text-align: center;
+}
+
+.ul{
+    list-style-type:none;
+    padding:0;
+    margin-top:0;
+}
+
+.structure{
+    background-color: rgb(255, 255, 255);
+    color: black;
+    font-weight: bold;
+    height: 100px;
+    position:sticky;
+}
+
+.alist{
+    color: #f1f1f1;
+    text-decoration: none;
+}
+
+.uml{
+    float: left;
+    width: 50%;
+    position: relative;
+}
+
+.code{
+    float:right;
+    width: 50%;
+    height: 388px;
+    position: relative;
+    overflow-y: scroll;
+}
+
+.tab{
+    margin: auto;
+}
+
+div.secondaTabella{
+    float: left;
+    position: static;
+}
+
+div.primaTabella{
+    position: absolute;
+}
+
+div.tabelle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+</style>
+</head>
+<body>
+
+    <div class="bg-image"></div>
+    <div class="bg-text">
+
+        <h1>TROVA IL TESORO!</h1>
+        <p>clicca per trovare il tesoro!</p>
+        <hr class="w3-border-grey" style="margin:auto;width:40%">
+        <div class="container">  <p class="med-text">NUMERO MOSSE: </p><p Id="numero">0</p> </div>
+
+        <div class="tabelle">
+        <div class="primaTabella">
+        <table class="tab" margin="auto">
+            <tr>
+              <td><img id="0" draggable="false" src="vuoto.jpg" onclick="cliccato(0)"></td>
+              <th><img id="1" draggable="false" src="vuoto.jpg" onclick="cliccato(1)"></th>
+              <th><img id="2" draggable="false" src="vuoto.jpg" onclick="cliccato(2)"></th>
+              <th><img id="3" draggable="false" src="vuoto.jpg" onclick="cliccato(3)"></th>
+              <th><img id="4" draggable="false" src="vuoto.jpg" onclick="cliccato(4)"></th>
+            </tr>
+            <tr>
+                <th><img id="5" draggable="false" src="vuoto.jpg" onclick="cliccato(5)"></th>
+                <th><img id="6" draggable="false" src="vuoto.jpg" onclick="cliccato(6)"></th>
+                <th><img id="7" draggable="false" src="vuoto.jpg" onclick="cliccato(7)"></th>
+                <th><img id="8" draggable="false" src="vuoto.jpg" onclick="cliccato(8)"></th>
+                <th><img id="9" draggable="false" src="vuoto.jpg" onclick="cliccato(9)"></th>
+            </tr>
+            <tr>
+                <th><img id="10" draggable="false" src="vuoto.jpg" onclick="cliccato(10)"></th>
+                <th><img id="11" draggable="false" src="vuoto.jpg" onclick="cliccato(11)"></th>
+                <th><img id="12" draggable="false" src="vuoto.jpg" onclick="cliccato(12)"></th>
+                <th><img id="13" draggable="false" src="vuoto.jpg" onclick="cliccato(13)"></th>
+                <th><img id="14" draggable="false" src="vuoto.jpg" onclick="cliccato(14)"></th>
+            </tr>
+            <tr>
+                <th><img id="15" draggable="false" src="vuoto.jpg" onclick="cliccato(15)"></th>
+                <th><img id="16" draggable="false" src="vuoto.jpg" onclick="cliccato(16)"></th>
+                <th><img id="17" draggable="false" src="vuoto.jpg" onclick="cliccato(17)"></th>
+                <th><img id="18" draggable="false" src="vuoto.jpg" onclick="cliccato(18)"></th>
+                <th><img id="19" draggable="false" src="vuoto.jpg" onclick="cliccato(19)"></th>
+            </tr>
+            <tr>
+                <th><img id="20" draggable="false" src="vuoto.jpg" onclick="cliccato(20)"></th>
+                <th><img id="21" draggable="false" src="vuoto.jpg" onclick="cliccato(21)"></th>
+                <th><img id="22" draggable="false" src="vuoto.jpg" onclick="cliccato(22)"></th>
+                <th><img id="23" draggable="false" src="vuoto.jpg" onclick="cliccato(23)"></th>
+                <th><img id="24" draggable="false" src="vuoto.jpg" onclick="cliccato(24)"></th>
+            </tr>
+          </table> 
+
+        </div>
+
+          <div class="secondaTabella">
+          <table class="tab">
+            <tr>
+                <td><img id="0s" draggable="false" src="x.jpg" onclick="cliccato(0)"></td>
+                <th><img id="1s" draggable="false" src="x.jpg" onclick="cliccato(1)"></th>
+                <th><img id="2s" draggable="false" src="x.jpg" onclick="cliccato(2)"></th>
+                <th><img id="3s" draggable="false" src="x.jpg" onclick="cliccato(3)"></th>
+                <th><img id="4s" draggable="false" src="x.jpg" onclick="cliccato(4)"></th>
+              </tr>
+              <tr>
+                  <th><img id="5s" draggable="false" src="x.jpg" onclick="cliccato(5)"></th>
+                  <th><img id="6s" draggable="false" src="x.jpg" onclick="cliccato(6)"></th>
+                  <th><img id="7s" draggable="false" src="x.jpg" onclick="cliccato(7)"></th>
+                  <th><img id="8s" draggable="false" src="x.jpg" onclick="cliccato(8)"></th>
+                  <th><img id="9s" draggable="false" src="x.jpg" onclick="cliccato(9)"></th>
+              </tr>
+              <tr>
+                  <th><img id="10s" draggable="false" src="x.jpg" onclick="cliccato(10)"></th>
+                  <th><img id="11s" draggable="false" src="x.jpg" onclick="cliccato(11)"></th>
+                  <th><img id="12s" draggable="false" src="x.jpg" onclick="cliccato(12)"></th>
+                  <th><img id="13s" draggable="false" src="x.jpg" onclick="cliccato(13)"></th>
+                  <th><img id="14s" draggable="false" src="x.jpg" onclick="cliccato(14)"></th>
+              </tr>
+              <tr>
+                  <th><img id="15s" draggable="false" src="x.jpg" onclick="cliccato(15)"></th>
+                  <th><img id="16s" draggable="false" src="x.jpg" onclick="cliccato(16)"></th>
+                  <th><img id="17s" draggable="false" src="x.jpg" onclick="cliccato(17)"></th>
+                  <th><img id="18s" draggable="false" src="x.jpg" onclick="cliccato(18)"></th>
+                  <th><img id="19s" draggable="false" src="x.jpg" onclick="cliccato(19)"></th>
+              </tr>
+              <tr>
+                  <th><img id="20s" draggable="false" src="x.jpg" onclick="cliccato(20)"></th>
+                  <th><img id="21s" draggable="false" src="x.jpg" onclick="cliccato(21)"></th>
+                  <th><img id="22s" draggable="false" src="x.jpg" onclick="cliccato(22)"></th>
+                  <th><img id="23s" draggable="false" src="x.jpg" onclick="cliccato(23)"></th>
+                  <th><img id="24s" draggable="false" src="x.jpg" onclick="cliccato(24)"></th>
+              </tr>
+          </table> 
+        </div>
+    </div>
+          <button onclick="reset()">reset</button>
+    </div>
+    
+</body>
+</html>
