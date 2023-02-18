@@ -23,6 +23,7 @@
     var b= true;
     var b2= true;
     let num;
+    V = new Array(24);
 
     function numeroRandomico() {
         num=Math.floor(Math.random() * 25);
@@ -37,10 +38,12 @@
             b=false;
         }
         document.getElementById(id).src='nulla.png';
+        if(V[id]!=1){
         i++
         s=i.toString();
-        document.getElementById("numero").innerHTML= s;
-
+        document.getElementById("numero").innerHTML= s;}
+        V[id]=1;
+            
         if(id==num){
             b2=false;
             var myTimer = setTimeout(function() {reset()}, 3000);
