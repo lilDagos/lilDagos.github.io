@@ -1,0 +1,27 @@
+<!DOCTYPE document SYSTEM "quesi/quesiti.xsd">
+
+<prova>
+
+    <descrizioneProva>esercitazione xml</descrizioneProva>
+    <quesito>
+        <Domanda>QUAL É IL VALORE DI "x"? x+2=0</Domanda>
+        <risposte corretta="false" punteggio="1" value="falso" value="a">2</risposte>
+        <risposte corretta="true" punteggio="1" value="vero" value="b">-2</risposte>
+        <risposte corretta="false" punteggio="1" value="falso" value="c">4</risposte>
+    </quesito>
+
+    <quesito>
+        <Domanda>QUAL É IL VALORE DI "x"? x+9*2=18</Domanda>
+        <risposte corretta="false" punteggio="1" value="falso" value="a">18</risposte>
+        <risposte corretta="false" punteggio="1" value="falso" value="b">-36</risposte>
+        <risposte corretta="true" punteggio="4" value="vero" value="c">0</risposte>
+    </quesito>
+
+    <quesito>
+        <Domanda>QUANTO FA? -3^2</Domanda>
+        <risposte corretta="false" punteggio="1" value="falso" value="a">9</risposte>
+        <risposte corretta="true" punteggio="5" value="vero" value="b">-9</risposte>
+        <risposte corretta="false" punteggio="1" value="falso" value="c">6</risposte>
+    </quesito>
+
+</prova>

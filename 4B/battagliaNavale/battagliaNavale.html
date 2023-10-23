@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>BATTAGLIA NAVALE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script language="JavaScript">
+    //<!--
+    let c=0,g=false;
+    let num;
+    let check=false;
+
+    NAVI = new Array(24);
+    NAVIDA4 = new Array(3);
+    NAVIDA3 = new Array(2);
+    NAVIDA2 = new Array(1);
+
+    NAVIC = new Array(24);
+    NAVIDA4C = new Array(3);
+    NAVIDA3C = new Array(2);
+    NAVIDA2C = new Array(1);
+    
+    function reset() {
+        for (let i = 0; i < 25; i++) {
+            document.getElementById(i).src='vuoto.jpg';
+            V[i]=0;
+        }
+        for (let i = 0; i < 25; i++) {
+            s=i+"s";
+            document.getElementById(s).src='vuoto.jpg';
+        }
+
+        document.getElementById("numero").innerHTML= 0;
+        
+        for (let i = 0; i < 25; i++) {
+            s=i+"00";
+            document.getElementById(s).src='vuoto.jpg';
+            VC[i]=0;
+        }
+
+        for (let i = 0; i < 25; i++) {
+            s=i+"cs";
+            document.getElementById(s).src='vuoto.jpg';
+        }
+
+        c=0;
+        numeroRandomico();
+    }
+    
+    function computer() {
+        if(Math.random()>0.5){
+        check=true;
+        do{
+            num=Math.floor(Math.random() * 25);
+            if(num == 0 || num == 1 || num == 5 || num == 6 || num == 10 || num == 11 || num == 15 || num == 16 || num == 20 || num == 21)
+                check=false;
+        }while(check);
+
+        for(let i=0;i<4;i++){
+            let s=num+i+"s";
+            if(i==0)
+                    document.getElementById(s).src='foto/NAVEDA4/1.png';
+                else if(i==1)
+                    document.getElementById(s).src='foto/NAVEDA4/2.png';
+                else if(i==2)
+                    document.getElementById(s).src='foto/NAVEDA4/3.png';
+                else if(i==3)
+                    document.getElementById(s).src='foto/NAVEDA4/4.png';
+            NAVIDA4C[i]=i+num+"s";
+        }}else{
+            check=true;
+        do{
+            num=Math.floor(Math.random() * 25);
+            if(num == 0 || num == 1 || num == 2 || num == 3 || num == 4 || num == 5 || num == 6 || num == 7 || num == 8 || num == 9)
+                check=false;
+        }while(check);
+
+        for(let z=0,i=0;z<20; z+=5 ,i++){
+            let s=num+z+"s";
+            if(i==0)
+                    document.getElementById(s).src='foto/naviRuotate/1.png';
+                else if(i==1)
+                    document.getElementById(s).src='foto/naviRuotate/2.png';
+                else if(i==2)
+                    document.getElementById(s).src='foto/naviRuotate/2.png';
+                else if(i==3)
+                    document.getElementById(s).src='foto/naviRuotate/4.png';
+            NAVIDA4C[i]=s;
+        }
+        }
+
+        if(Math.random()>0.5){
+        do{
+            check=true;
+            do{
+                num=Math.floor(Math.random() * 25);
+                if(num == 0 || num == 1 || num == 2 || num == 5 || num == 6 || num == 7 || num == 10 || num == 11 || num == 12 || num == 15 || num == 16 || num == 17 || num == 20 || num == 21 || num == 22)
+                    check=false;
+            }while(check);
+
+            for (let i = 0; i < 4 ; i++) {
+                    for (let j = 0; j < 3 ; j++) {
+                        if(NAVIDA4C[i]==num+j+"s"){
+                            check=true;
+                            i=4;
+                            j=3;}
+                }}
+
+        }while(check);
+            for(let i=0;i<3;i++){
+                let s=num+i+"s";
+                if(i==0)
+                        document.getElementById(s).src='foto/NAVEDA3/1.png';
+                    else if(i==1)
+                        document.getElementById(s).src='foto/NAVEDA3/2.png';
+                    else if(i==2)
+                        document.getElementById(s).src='foto/NAVEDA3/3.png';
+                NAVIDA3C[i]=i+num+"s";
+            }
+    }else{
+        do{
+            check=true;
+            do{
+                num=Math.floor(Math.random() * 25);
+                if(num == 0 || num == 1 || num == 2 || num == 3 || num == 4 || num == 5 || num == 6 || num == 7 || num == 8 || num == 9 || num == 10 || num == 11 || num == 12 || num == 13 || num == 14)
+                    check=false;
+            }while(check);
+
+            for (let i = 0; i < 4 ; i++) {
+                    for (let j = 0,z=0; j < 3 ; j++,z+=5) {
+                        if(NAVIDA4C[i]==num+z+"s"){
+                            check=true;
+                            i=4;
+                            j=3;}
+                }}
+
+        }while(check);
+                for(let z=0,i=0;z<15; z+=5 ,i++){
+                    let s=num+z+"s";
+                    if(i==0)
+                            document.getElementById(s).src='foto/naviRuotate/1.png';
+                        else if(i==1)
+                            document.getElementById(s).src='foto/naviRuotate/2.png';
+                        else if(i==2)
+                            document.getElementById(s).src='foto/naviRuotate/4.png';
+                    NAVIDA3C[i]=s;
+                }
+        }
+
+    if(Math.random()>0.5){
+        do{
+            check=true;
+            do{
+                num=Math.floor(Math.random() * 25);
+                if(num == 0 || num == 1 || num == 2 || num == 3 || num == 5 || num == 6 || num == 7 || num == 8 || num == 10 || num == 11 || num == 12 || num == 13 || num == 15 || num == 16 || num == 17 || num == 18 || num == 20 || num == 21 || num == 22 || num == 23)
+                    check=false;
+            }while(check);
+            for (let i = 0; i < 4 ; i++) {
+                for (let j = 0; j < 2 ; j++) {
+                    if(NAVIDA4C[i]==num+j+"s"){
+                            check=true;
+                            i=4;
+                            j=3;}
+            }}
+            for (let i = 0; i < 3 ; i++) {
+                for (let j = 0; j < 2 ; j++) {
+                    if(NAVIDA3C[i]==num+j+"s"){
+                            check=true;
+                            i=4;
+                            j=3;}
+            }}
+        }while(check);
+
+            for(let i=0;i<2;i++){
+                let s=num+i+"s";
+                if(i==0)
+                        document.getElementById(s).src='foto/NAVEDA2/1.png';
+                    else if(i==1)
+                        document.getElementById(s).src='foto/NAVEDA2/2.png';
+                NAVIDA2C[i]=i+num+"s";
+            }
+    }else{
+        do{
+            check=true;
+            do{
+                id=Math.floor(Math.random() * 25);
+                if(id == 0 || id == 1 || id == 2 || id == 3 || id == 4 || id == 5 || id == 6 || id == 7 || id == 8 || id == 9 || id == 10 || id == 11 || id == 12 || id == 13 || id == 14 || id == 15 || id == 16 || id == 17 || id == 18 || id == 19)
+                    check=false;
+            }while(check);
+            for (let i = 0; i < 4 ; i++) {
+                    for (let j = 0,z=0; j < 2 ; j++,z+=5) {
+                        if(NAVIDA4C[i]==id+z+"s"){
+                            check=true;
+                            i=4;
+                            j=3;}
+                }}
+            for (let i = 0; i < 3 ; i++) {
+                for (let j = 0; j < 2 ; j++) {
+                    if(NAVIDA3C[i]==id+j+"s"){
+                            check=true;
+                            i=4;
+                            j=3;}
+            }}
+        }while(check);
+                for(let z=0,i=0;z<10; z+=5 ,i++){
+                    let s=id+z+"s";
+                    if(i==0)
+                            document.getElementById(s).src='foto/naviRuotate/1.png';
+                        else if(i==1)
+                            document.getElementById(s).src='foto/naviRuotate/4.png';
+                    NAVIDA2C[i]=s;
+                }
+        }
+    }
+
+    function selezione(id){
+        if(id>=0 && id <25){
+
+        if(!g){//orizzontale
+        if(c==0){
+        document.getElementById("numeroMosse").innerHTML= "INSERISCI 1 NAVE DA 4 CASELLE";
+        c++;
+        for (let i = 0; i < 25; i++) {
+            NAVI[i]=0;
+        }
+        for (let i = 0; i < 4; i++) {
+            NAVIDA4[i]=0;
+        }
+        for (let i = 0; i < 3; i++) {
+            NAVIDA3[i]=0;
+        }
+        for (let i = 0; i < 2; i++) {
+            NAVIDA2[i]=0;
+        }
+    }
+        else if(c==1){
+            if(id == 0 || id == 1 || id == 5 || id == 6 || id == 10 || id == 11 || id == 15 || id == 16 || id == 20 || id == 21){
+            for (let i = 0; i < 4; i++) {
+                NAVIDA4[i]=id+i;
+                if(i==0)
+                    document.getElementById(id+i).src='foto/NAVEDA4/1.png';
+                else if(i==1)
+                    document.getElementById(id+i).src='foto/NAVEDA4/2.png';
+                else if(i==2)
+                    document.getElementById(id+i).src='foto/NAVEDA4/3.png';
+                else if(i==3)
+                    document.getElementById(id+i).src='foto/NAVEDA4/4.png';
+            }
+            c++
+            document.getElementById("numeroMosse").innerHTML= "INSERISCI 1 NAVE DA 3 CASELLE";}
+            else
+            document.getElementById("numeroMosse").innerHTML= "SPAZIO INSUFFICIENTE, INSERISCI 1 NAVE DA 4 CASELLE";
+        }
+        
+        else if(c==2){
+            if(id == 0 || id == 1 || id == 2 || id == 5 || id == 6 || id == 7 || id == 10 || id == 11 || id == 12 || id == 15 || id == 16 || id == 17 || id == 20 || id == 21 || id == 22 ){
+                for (let i = 0; i < 4 ; i++) {
+                    for (let j = 0; j < 3 ; j++) {
+                        if(NAVIDA4[i]==id+j){
+                            document.getElementById("numeroMosse").innerHTML= "SPAZIO INSUFFICIENTE, INSERISCI 1 NAVE DA 3 CASELLE";
+                            check=true;
+                            i=3;
+                            j=3;}
+                }}
+                if(!check){
+                for (let i = 0; i < 3; i++) {
+                NAVIDA3[i]=id+i;
+                if(i==0)
+                    document.getElementById(id+i).src='foto/NAVEDA3/1.png';
+                else if(i==1)
+                    document.getElementById(id+i).src='foto/NAVEDA3/2.png';
+                else if(i==2)
+                    document.getElementById(id+i).src='foto/NAVEDA3/3.png';
+            }
+            c++
+            document.getElementById("numeroMosse").innerHTML= "INSERISCI 1 NAVE DA 2 CASELLE";
+        }
+        check=false;
+        }
+        else
+        document.getElementById("numeroMosse").innerHTML= "SPAZIO INSUFFICIENTE, INSERISCI 1 NAVE DA 3 CASELLE";
+        }
+
+        else if(c==3){
+            if(id == 0 || id == 1 || id == 2 || id == 3 || id == 5 || id == 6 || id == 7 || id == 8 || id == 10 || id == 11 || id == 12 || id == 13 || id == 15 || id == 16 || id == 17 || id == 18 || id == 20 || id == 21 || id == 22 || id == 23){
+                for (let i = 0; i < 4 ; i++) {
+                    for (let j = 0; j < 3 ; j++) {
+                        if(NAVIDA4[i]==id+j){
+                            document.getElementById("numeroMosse").innerHTML= "SPAZIO INSUFFICIENTE, INSERISCI 1 NAVE DA 3 CASELLE";
+                            check=true;
+                            i=3;
+                            j=3;}
+                }}
+
+                for (let i = 0; i < 3 ; i++) {
+                    for (let j = 0; j < 2 ; j++) {
+                        if(NAVIDA3[i]==id+j){
+                            document.getElementById("numeroMosse").innerHTML= "SPAZIO INSUFFICIENTE, INSERISCI 1 NAVE DA 2 CASELLE 2";
+                            check=true;
+                            i=3;
+                            j=3;}
+                    }
+                }
+                if(!check){
+                for (let i = 0; i < 2; i++) {
+                NAVIDA2[i]=id+i;
+                if(i==0)
+                    document.getElementById(id+i).src='foto/NAVEDA2/1.png';
+                else
+                    document.getElementById(id+i).src='foto/NAVEDA2/2.png';
+            }
+            c++
+            document.getElementById("numeroMosse").innerHTML= "NUMERO MOSSE:";
+            document.getElementById("numero").innerHTML= 0;
+        }
+        check=false;
+        }
+        else
+        document.getElementById("numeroMosse").innerHTML= "SPAZIO INSUFFICIENTE, INSERISCI 1 NAVE DA 2 CASELLE";
+        
+        const btn = document.getElementById('gira');
+
+        btn.style.display = 'none';}
+
+        }
+
+        if(g){//verticale
+            if(c==0){
+        document.getElementById("numeroMosse").innerHTML= "INSERISCI 1 NAVE DA 4 CASELLE";
+        c++;
+        for (let i = 0; i < 25; i++) {
+            NAVI[i]=0;
+        }
+        for (let i = 0; i < 4; i++) {
+            NAVIDA4[i]=0;
+        }
+        for (let i = 0; i < 3; i++) {
+            NAVIDA3[i]=0;
+        }
+        for (let i = 0; i < 2; i++) {
+            NAVIDA2[i]=0;
+        }
+    }
+        else if(c==1){
+            if(id == 0 || id == 1 || id == 2 || id == 3 || id == 4 || id == 5 || id == 6 || id == 7 || id == 8 || id == 9){
+            let z=0;
+            for (let i = 0; i < 4; i++) {
+                    NAVIDA4[i]=id+z;
+                if(i==0)
+                    document.getElementById(id+z).src='foto/naviRuotate/1.png';
+                else if(i==1)
+                    document.getElementById(id+z).src='foto/naviRuotate/2.png';
+                else if(i==2)
+                    document.getElementById(id+z).src='foto/naviRuotate/2.png';
+                else if(i==3)
+                    document.getElementById(id+z).src='foto/naviRuotate/4.png';
+                z+=5;
+            }
+            c++
+            document.getElementById("numeroMosse").innerHTML= "INSERISCI 1 NAVE DA 3 CASELLE";}
+            else
+            document.getElementById("numeroMosse").innerHTML= "SPAZIO INSUFFICIENTE, INSERISCI 1 NAVE DA 4 CASELLE";
+        }
+        
+        else if(c==2){
+            if(id == 0 || id == 1 || id == 2 || id == 3 || id == 4 || id == 5 || id == 6 || id == 7 || id == 8 || id == 9 || id == 10 || id == 11 || id == 12 || id == 13 || id == 14){
+                for (let i = 0; i < 4 ; i++) {
+                    let z=0;
+                    for (let j = 0; j < 3 ; j++) {
+                        if(NAVIDA4[i]==id+z){
+                            document.getElementById("numeroMosse").innerHTML= "SPAZIO INSUFFICIENTE, INSERISCI 1 NAVE DA 3 CASELLE";
+                            check=true;
+                            i=3;
+                            j=3;}
+                        z+=5;
+                }}
+                if(!check){
+                z=0;
+                for (let i = 0; i < 3; i++) {
+                NAVIDA3[i]=id+z;
+                if(i==0)
+                    document.getElementById(id+z).src='foto/naviRuotate/1.png';
+                else if(i==1)
+                    document.getElementById(id+z).src='foto/naviRuotate/2.png';
+                else if(i==2)
+                    document.getElementById(id+z).src='foto/naviRuotate/4.png';
+                z+=5;
+                }
+            c++
+            document.getElementById("numeroMosse").innerHTML= "INSERISCI 1 NAVE DA 2 CASELLE";
+        }
+        check=false;
+        }
+        else
+        document.getElementById("numeroMosse").innerHTML= "SPAZIO INSUFFICIENTE, INSERISCI 1 NAVE DA 3 CASELLE";
+        }
+
+        else if(c==3){
+            if(id == 0 || id == 1 || id == 2 || id == 3 || id == 4 || id == 5 || id == 6 || id == 7 || id == 8 || id == 9 || id == 10 || id == 11 || id == 12 || id == 13 || id == 14 || id == 15 || id == 16 || id == 17 || id == 18 || id == 19){
+                let z=0;
+                for (let i = 0; i < 4 ; i++) {
+                    let z=0;
+                    for (let j = 0; j < 2 ; j++) {
+                        if(NAVIDA4[i]==id+z){
+                            document.getElementById("numeroMosse").innerHTML= "SPAZIO INSUFFICIENTE, INSERISCI 1 NAVE DA 2 CASELLE 1";
+                            check=true;
+                            i=3;
+                            j=3;}
+                        z+=5;}
+                }
+                z=0;
+                for (let i = 0; i < 3 ; i++) {
+                    let z=0;
+                    for (let j = 0; j < 2 ; j++) {
+                        if(NAVIDA3[i]==id+z){
+                            document.getElementById("numeroMosse").innerHTML= "SPAZIO INSUFFICIENTE, INSERISCI 1 NAVE DA 2 CASELLE 2";
+                            check=true;
+                            i=3;
+                            j=3;}
+                        z+=5;}
+                }
+
+                if(!check){
+                z=0;
+                for (let i = 0; i < 2; i++) {
+                NAVIDA2[i]=id+z;
+                if(i==0)
+                    document.getElementById(id+z).src='foto/naviRuotate/1.png';
+                else
+                    document.getElementById(id+z).src='foto/naviRuotate/4.png';
+                z+=5;
+            }
+            c++
+            document.getElementById("numeroMosse").innerHTML= "NUMERO MOSSE:";
+            document.getElementById("numero").innerHTML= 0;
+        }
+        check=false;
+        }
+        else
+            document.getElementById("numeroMosse").innerHTML= "SPAZIO INSUFFICIENTE, INSERISCI 1 NAVE DA 2 CASELLE 3";
+        }
+        const btn = document.getElementById('gira');
+
+        btn.style.display = 'none';
+        c++
+        }
+
+        if(c==4){
+            for (let i = 0; i < 4 ; i++) {
+                NAVI[NAVIDA4[i]]=1
+            }
+            for (let i = 0; i < 3 ; i++) {
+                NAVI[NAVIDA3[i]]=1;
+            }
+            for (let i = 0; i < 2 ; i++) {
+                NAVI[NAVIDA2[i]]=1;
+            }
+
+            for (let i = 0; i < 25 ; i++) {
+                if(NAVI[i]!=1)
+                    document.getElementById(i).src='nulla.png';
+            }
+            c++
+
+            computer();
+
+            for (let i = 0; i < 4 ; i++) {
+                NAVIC[NAVIDA4C[i]]=1
+            }
+            for (let i = 0; i < 3 ; i++) {
+                NAVIC[NAVIDA3C[i]]=1;
+            }
+            for (let i = 0; i < 2 ; i++) {
+                NAVIC[NAVIDA2C[i]]=1;
+            }
+
+        }
+    
+    }
+        else if(c==5)
+          cliccato(id);
+    }
+
+    function cliccato(id){
+        check=false;
+        let n4=0,n3=0,n2=0;
+        var newStr = id.replace('s','')
+
+        if(NAVIC[id]==1){
+            check=true;
+            for(let i=0;i<4;i++){
+                if(NAVIDA4C[i]==id){
+                    n4++
+                    break;
+                }
+                if(i<3){
+                if(NAVIDA4C[i]==id){
+                    n3++
+                    break;
+                }
+                if(i<2){
+                if(NAVIDA4C[i]==id){
+                    n2++
+                    break;
+                }}}
+            }
+        }
+
+        console.log(newStr);
+
+        if(check)
+            document.getElementById(newStr+"c").src='foto/COLPITO.png';
+        else{
+            document.getElementById(id).src='nulla.png';
+            document.getElementById(newStr+"c").src='nulla.png';
+            }
+        
+        if(n4==4){
+        alert("sono dal n4");
+            for(let i=0;i<4;i++){
+                var a = NAVIDA4C[i].replace('s','')
+                document.getElementById(a+"c").src='nulla.png';
+        }        alert("sono dal n4");}
+        if(n3==3){
+        alert("sono dal n3")
+            for(let i=0;i<3;i++){
+                var a = NAVIDA3C[i].replace('s','')
+                document.getElementById(a+"c").src='nulla.png';
+        }        alert("sono dal n3")}
+        if(n2==2){
+        alert("sono dal n2")
+            for(let i=0;i<2;i++){
+                var a = NAVIDA2C[i].replace('s','')
+                document.getElementById(a+"c").src='nulla.png';
+        }        alert("sono dal n2")}
+
+    }
+
+        function gira(){
+            if(g)
+                g=false;
+            else
+                g=true;
+        }
+
+    //-->
+    </script>
+<style>
+    
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-image {
+  background-image: url("sfondo.jpg");
+  min-height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 3px solid #f1f1f1;
+}
+
+.bg-text {
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.288);
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+  text-align: center;
+}
+
+.nascosto{
+    float: left;
+    position: absolute;
+}
+
+.visibile{
+    position: static;
+}
+
+.tabelle{
+    display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	border: 3px solid #fff;
+  	padding: 20px;
+    width: min-content;
+    float: left;
+}
+
+.tabelle2{
+    display: flex;
+  	border: 3px solid #fff;
+  	padding: 20px;
+    width: min-content;
+    float: right;
+}
+
+.field {
+    display: flex;
+  	justify-content: center;
+    align-items: center;
+}
+
+</style>
+</head>
+<body>
+
+    <div class="bg-image"></div>
+    <div class="bg-text">
+        <h1>BATTAGLIA NAVALE</h1>
+        <p>clicca per iniziare la guerra</p>
+        <hr class="w3-border-grey" style="margin:auto;width:40%">
+        <div class="container">  <p class="med-text" id="numeroMosse">INIZIA CLICCANDO UNA CASELLA DELLA TAVOLA DI DESTRA</p><p Id="numero"></p> </div>
+
+        <div class="field">
+        <div class="tabelle">
+        <div class="visibile"><!-- NASCOSTO COMPUTER-->
+            <table class="tab">
+                <tr>
+                  <td><img draggable="false" src="foto/11.jpg"></td>
+                  <th><img draggable="false" src="foto/12.jpg"></th>
+                  <th><img draggable="false" src="foto/13.jpg"></th>
+                  <th><img draggable="false" src="foto/14.jpg"></th>
+                  <th><img draggable="false" src="foto/15.jpg"></th>
+                </tr>
+                <tr>
+                    <th><img draggable="false" src="foto/21.jpg"></th>
+                    <th><img draggable="false" src="foto/22.jpg"></th>
+                    <th><img draggable="false" src="foto/23.jpg"></th>
+                    <th><img draggable="false" src="foto/24.jpg"></th>
+                    <th><img draggable="false" src="foto/25.jpg"></th>
+                </tr>
+                <tr>
+                    <th><img draggable="false" src="foto/31.jpg"></th>
+                    <th><img draggable="false" src="foto/32.jpg"></th>
+                    <th><img draggable="false" src="foto/33.jpg"></th>
+                    <th><img draggable="false" src="foto/34.jpg"></th>
+                    <th><img draggable="false" src="foto/35.jpg"></th>
+                </tr>
+                <tr>
+                    <th><img draggable="false" src="foto/41.jpg"></th>
+                    <th><img draggable="false" src="foto/42.jpg"></th>
+                    <th><img draggable="false" src="foto/43.jpg"></th>
+                    <th><img draggable="false" src="foto/44.jpg"></th>
+                    <th><img draggable="false" src="foto/45.jpg"></th>
+                </tr>
+                <tr>
+                    <th><img draggable="false" src="foto/51.jpg"></th>
+                    <th><img draggable="false" src="foto/52.jpg"></th>
+                    <th><img draggable="false" src="foto/53.jpg"></th>
+                    <th><img draggable="false" src="foto/54.jpg"></th>
+                    <th><img draggable="false" src="foto/55.jpg"></th>
+                </tr>
+              </table>
+        </div>
+
+        <div class="nascosto"><!-- INTERMEDIO COMPUTER-->
+            <table class="tab">
+              <tr>
+                <td><img id="0s" draggable="false" src="nulla.png"></td>
+                <th><img id="1s" draggable="false" src="nulla.png"></th>
+                <th><img id="2s" draggable="false" src="nulla.png"></th>
+                <th><img id="3s" draggable="false" src="nulla.png"></th>
+                <th><img id="4s" draggable="false" src="nulla.png"></th>
+              </tr>
+              <tr>
+                  <th><img id="5s" draggable="false" src="nulla.png"></th>
+                  <th><img id="6s" draggable="false" src="nulla.png"></th>
+                  <th><img id="7s" draggable="false" src="nulla.png"></th>
+                  <th><img id="8s" draggable="false" src="nulla.png"></th>
+                  <th><img id="9s" draggable="false" src="nulla.png"></th>
+              </tr>
+              <tr>
+                  <th><img id="10s" draggable="false" src="nulla.png"></th>
+                  <th><img id="11s" draggable="false" src="nulla.png"></th>
+                  <th><img id="12s" draggable="false" src="nulla.png"></th>
+                  <th><img id="13s" draggable="false" src="nulla.png"></th>
+                  <th><img id="14s" draggable="false" src="nulla.png"></th>
+              </tr>
+              <tr>
+                  <th><img id="15s" draggable="false" src="nulla.png"></th>
+                  <th><img id="16s" draggable="false" src="nulla.png"></th>
+                  <th><img id="17s" draggable="false" src="nulla.png"></th>
+                  <th><img id="18s" draggable="false" src="nulla.png"></th>
+                  <th><img id="19s" draggable="false" src="nulla.png"></th>
+              </tr>
+              <tr>
+                  <th><img id="20s" draggable="false" src="nulla.png"></th>
+                  <th><img id="21s" draggable="false" src="nulla.png"></th>
+                  <th><img id="22s" draggable="false" src="nulla.png"></th>
+                  <th><img id="23s" draggable="false" src="nulla.png"></th>
+                  <th><img id="24s" draggable="false" src="nulla.png"></th>
+              </tr>
+            </table>
+        </div>
+
+        <div class="nascosto"><!-- VISIBILE COMPUTER-->
+            <table class="tab">
+                <tr>
+                  <td><img id="0c" draggable="false" src="vuoto.jpg" onclick="selezione('0s')"></td>
+                  <th><img id="1c" draggable="false" src="vuoto.jpg" onclick="selezione('1s')"></th>
+                  <th><img id="2c" draggable="false" src="vuoto.jpg" onclick="selezione('2s')"></th>
+                  <th><img id="3c" draggable="false" src="vuoto.jpg" onclick="selezione('3s')"></th>
+                  <th><img id="4c" draggable="false" src="vuoto.jpg" onclick="selezione('4s')"></th>
+                </tr>
+                <tr>
+                    <th><img id="5c" draggable="false" src="vuoto.jpg" onclick="selezione('5s')"></th>
+                    <th><img id="6c" draggable="false" src="vuoto.jpg" onclick="selezione('6s')"></th>
+                    <th><img id="7c" draggable="false" src="vuoto.jpg" onclick="selezione('7s')"></th>
+                    <th><img id="8c" draggable="false" src="vuoto.jpg" onclick="selezione('8s')"></th>
+                    <th><img id="9c" draggable="false" src="vuoto.jpg" onclick="selezione('9s')"></th>
+                </tr>
+                <tr>
+                    <th><img id="10c" draggable="false" src="vuoto.jpg" onclick="selezione('10s')"></th>
+                    <th><img id="11c" draggable="false" src="vuoto.jpg" onclick="selezione('11s')"></th>
+                    <th><img id="12c" draggable="false" src="vuoto.jpg" onclick="selezione('12s')"></th>
+                    <th><img id="13c" draggable="false" src="vuoto.jpg" onclick="selezione('13s')"></th>
+                    <th><img id="14c" draggable="false" src="vuoto.jpg" onclick="selezione('14s')"></th>
+                </tr>
+                <tr>
+                    <th><img id="15c" draggable="false" src="vuoto.jpg" onclick="selezione('15s')"></th>
+                    <th><img id="16c" draggable="false" src="vuoto.jpg" onclick="selezione('16s')"></th>
+                    <th><img id="17c" draggable="false" src="vuoto.jpg" onclick="selezione('17s')"></th>
+                    <th><img id="18c" draggable="false" src="vuoto.jpg" onclick="selezione('18s')"></th>
+                    <th><img id="19c" draggable="false" src="vuoto.jpg" onclick="selezione('19s')"></th>
+                </tr>
+                <tr>
+                    <th><img id="20c" draggable="false" src="vuoto.jpg" onclick="selezione('20s')"></th>
+                    <th><img id="21c" draggable="false" src="vuoto.jpg" onclick="selezione('21s')"></th>
+                    <th><img id="22c" draggable="false" src="vuoto.jpg" onclick="selezione('22s')"></th>
+                    <th><img id="23c" draggable="false" src="vuoto.jpg" onclick="selezione('23s')"></th>
+                    <th><img id="24c" draggable="false" src="vuoto.jpg" onclick="selezione('24s')"></th>
+                </tr>
+              </table> 
+        </div>
+    </div>
+
+    <div class="tabelle2"><!-- NASCOSTO UTENTE-->
+        <div class="visibile">
+            <table class="tab">
+                <tr>
+                  <td><img id="0s" draggable="false" src="nulla.png"></td>
+                  <th><img id="1s" draggable="false" src="nulla.png"></th>
+                  <th><img id="2s" draggable="false" src="nulla.png"></th>
+                  <th><img id="3s" draggable="false" src="nulla.png"></th>
+                  <th><img id="4s" draggable="false" src="nulla.png"></th>
+                </tr>
+                <tr>
+                    <th><img id="5s" draggable="false" src="nulla.png"></th>
+                    <th><img id="6s" draggable="false" src="nulla.png"></th>
+                    <th><img id="7s" draggable="false" src="nulla.png"></th>
+                    <th><img id="8s" draggable="false" src="nulla.png"></th>
+                    <th><img id="9s" draggable="false" src="nulla.png"></th>
+                </tr>
+                <tr>
+                    <th><img id="10s" draggable="false" src="nulla.png"></th>
+                    <th><img id="11s" draggable="false" src="nulla.png"></th>
+                    <th><img id="12s" draggable="false" src="nulla.png"></th>
+                    <th><img id="13s" draggable="false" src="nulla.png"></th>
+                    <th><img id="14s" draggable="false" src="nulla.png"></th>
+                </tr>
+                <tr>
+                    <th><img id="15s" draggable="false" src="nulla.png"></th>
+                    <th><img id="16s" draggable="false" src="nulla.png"></th>
+                    <th><img id="17s" draggable="false" src="nulla.png"></th>
+                    <th><img id="18s" draggable="false" src="nulla.png"></th>
+                    <th><img id="19s" draggable="false" src="nulla.png"></th>
+                </tr>
+                <tr>
+                    <th><img id="20s" draggable="false" src="nulla.png"></th>
+                    <th><img id="21s" draggable="false" src="nulla.png"></th>
+                    <th><img id="22s" draggable="false" src="nulla.png"></th>
+                    <th><img id="23s" draggable="false" src="nulla.png"></th>
+                    <th><img id="24s" draggable="false" src="nulla.png"></th>
+                </tr>
+              </table>
+        </div>
+
+        <div class="nascosto"><!-- INTERMEDI UTENTE-->
+            <table class="tab">
+                <tr>
+                  <td><img draggable="false" src="vuoto.jpg"></td>
+                  <th><img draggable="false" src="vuoto.jpg"></th>
+                  <th><img draggable="false" src="vuoto.jpg"></th>
+                  <th><img draggable="false" src="vuoto.jpg"></th>
+                  <th><img draggable="false" src="vuoto.jpg"></th>
+                </tr>
+                <tr>
+                    <th><img draggable="false" src="vuoto.jpg"></th>
+                    <th><img draggable="false" src="vuoto.jpg"></th>
+                    <th><img draggable="false" src="vuoto.jpg"></th>
+                    <th><img draggable="false" src="vuoto.jpg"></th>
+                    <th><img draggable="false" src="vuoto.jpg"></th>
+                </tr>
+                <tr>
+                    <th><img draggable="false" src="vuoto.jpg"></th>
+                    <th><img draggable="false" src="vuoto.jpg"></th>
+                    <th><img draggable="false" src="vuoto.jpg"></th>
+                    <th><img draggable="false" src="vuoto.jpg"></th>
+                    <th><img draggable="false" src="vuoto.jpg"></th>
+                </tr>
+                <tr>
+                    <th><img draggable="false" src="vuoto.jpg"></th>
+                    <th><img draggable="false" src="vuoto.jpg"></th>
+                    <th><img draggable="false" src="vuoto.jpg"></th>
+                    <th><img draggable="false" src="vuoto.jpg"></th>
+                    <th><img draggable="false" src="vuoto.jpg"></th>
+                </tr>
+                <tr>
+                    <th><img draggable="false" src="vuoto.jpg"></th>
+                    <th><img draggable="false" src="vuoto.jpg"></th>
+                    <th><img draggable="false" src="vuoto.jpg"></th>
+                    <th><img draggable="false" src="vuoto.jpg"></th>
+                    <th><img draggable="false" src="vuoto.jpg"></th>
+                </tr>
+              </table>
+        </div>
+
+        <div class="nascosto"><!-- VISIBILE UTENTE-->
+            <table class="tab" margin="auto">
+                <tr>
+                  <td><img id="0" draggable="false" src="vuoto.jpg" onclick="selezione(0)"></td>
+                  <th><img id="1" draggable="false" src="vuoto.jpg" onclick="selezione(1)"></th>
+                  <th><img id="2" draggable="false" src="vuoto.jpg" onclick="selezione(2)"></th>
+                  <th><img id="3" draggable="false" src="vuoto.jpg" onclick="selezione(3)"></th>
+                  <th><img id="4" draggable="false" src="vuoto.jpg" onclick="selezione(4)"></th>
+                </tr>
+                <tr>
+                    <th><img id="5" draggable="false" src="vuoto.jpg" onclick="selezione(5)"></th>
+                    <th><img id="6" draggable="false" src="vuoto.jpg" onclick="selezione(6)"></th>
+                    <th><img id="7" draggable="false" src="vuoto.jpg" onclick="selezione(7)"></th>
+                    <th><img id="8" draggable="false" src="vuoto.jpg" onclick="selezione(8)"></th>
+                    <th><img id="9" draggable="false" src="vuoto.jpg" onclick="selezione(9)"></th>
+                </tr>
+                <tr>
+                    <th><img id="10" draggable="false" src="vuoto.jpg" onclick="selezione(10)"></th>
+                    <th><img id="11" draggable="false" src="vuoto.jpg" onclick="selezione(11)"></th>
+                    <th><img id="12" draggable="false" src="vuoto.jpg" onclick="selezione(12)"></th>
+                    <th><img id="13" draggable="false" src="vuoto.jpg" onclick="selezione(13)"></th>
+                    <th><img id="14" draggable="false" src="vuoto.jpg" onclick="selezione(14)"></th>
+                </tr>
+                <tr>
+                    <th><img id="15" draggable="false" src="vuoto.jpg" onclick="selezione(15)"></th>
+                    <th><img id="16" draggable="false" src="vuoto.jpg" onclick="selezione(16)"></th>
+                    <th><img id="17" draggable="false" src="vuoto.jpg" onclick="selezione(17)"></th>
+                    <th><img id="18" draggable="false" src="vuoto.jpg" onclick="selezione(18)"></th>
+                    <th><img id="19" draggable="false" src="vuoto.jpg" onclick="selezione(19)"></th>
+                </tr>
+                <tr>
+                    <th><img id="20" draggable="false" src="vuoto.jpg" onclick="selezione(20)"></th>
+                    <th><img id="21" draggable="false" src="vuoto.jpg" onclick="selezione(21)"></th>
+                    <th><img id="22" draggable="false" src="vuoto.jpg" onclick="selezione(22)"></th>
+                    <th><img id="23" draggable="false" src="vuoto.jpg" onclick="selezione(23)"></th>
+                    <th><img id="24" draggable="false" src="vuoto.jpg" onclick="selezione(24)"></th>
+                </tr>
+              </table> 
+        </div>
+        </div>
+    </div>
+        <button onclick="reset()">reset</button>
+        <button id="gira" onclick="gira()">gira</button>
+    </div>
+    <script>
+        
+    </script>
+</body>
+</html>

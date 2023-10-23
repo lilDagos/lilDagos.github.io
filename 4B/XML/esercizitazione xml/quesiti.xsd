@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Definizione del tipo di dati per una risposta -->
+  <xs:simpleType name="tipoDiRisposta">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="vero"/>
+      <xs:enumeration value="falso"/>
+      <xs:enumeration value="a"/>
+      <xs:enumeration value="b"/>
+      <xs:enumeration value="c"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Definizione del tipo di dati per una domanda a scelta -->
+  <xs:complexType name="quesito">
+    <xs:sequence>
+      <xs:element name="Domanda" type="xs:string"/>
+      <xs:element name="risposte" minOccurs="2" maxOccurs="3">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="tipoDiRisposta">
+              <xs:attribute name="corretta" type="xs:boolean"/>
+              <xs:attribute name="punteggio" type="xs:int"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Definizione del tipo di dati per una prova di verifica -->
+  <xs:complexType name="provaTipo">
+    <xs:sequence>
+      <xs:element name="descrizioneProva" type="xs:string"/>
+      <xs:element name="quesito" minOccurs="1" maxOccurs="unbounded" type="quesito"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Definizione del documento XML -->
+  <xs:element name="prova" type="provaTipo"/>
+
+</xs:schema>
